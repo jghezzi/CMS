@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  bill_date: 2015-11-29
+  hours: 1.5
+  consultant_id: 1
+  project_id: 1
+  sow_id: 1
+
+two:
+  bill_date: 2015-11-29
+  hours: 1.5
+  consultant_id: 1
+  project_id: 1
+  sow_id: 1

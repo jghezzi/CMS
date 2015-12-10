@@ -1,0 +1,31 @@
+%h1 Listing sows
+
+%table
+  %thead
+    %tr
+      %th Begin date
+      %th End date
+      %th Sow hours
+      %th Bill rate
+      %th Client
+      %th Project
+      %th
+      %th
+      %th
+
+  %tbody
+    - @sows.each do |sow|
+      %tr
+        %td= sow.begin_date
+        %td= sow.end_date
+        %td= sow.sow_hours
+        %td= sow.bill_rate
+        %td= sow.client_id
+        %td= sow.project_id
+        %td= link_to 'Show', sow
+        %td= link_to 'Edit', edit_sow_path(sow)
+        %td= link_to 'Destroy', sow, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Sow', new_sow_path

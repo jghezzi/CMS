@@ -1,0 +1,99 @@
+!!!
+%html
+	%head
+		%meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+		%title Cms
+		= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+		= javascript_include_tag 'application', 'data-turbolinks-track' => true
+		= javascript_include_tag 'modernizr'
+		= csrf_meta_tags
+	%body
+		%nav.top-bar{"data-topbar" => "", :role => "navigation"}
+			%ul.title-area
+				/ Title Area
+				%li.name
+				/ Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone
+				%li.toggle-topbar.menu-icon
+					%a{:href => ""}
+						%span Menu
+			%section.top-bar-section
+				%ul.left
+					%li
+						%a{:href => "#"} Consultinex 9000
+				%ul.right
+					%li.has-dropdown.not-click
+						%a{:href => "#"} Manage
+						%ul.dropdown
+							%li.title.back.js-generated
+								%h5
+									%a{:href => "javascript:void(0)"} Back
+							%li.parent-link.hide-for-medium-up
+								%a.parent-link.js-generated{:href => "#"} Item 1
+							%li
+								%label Level One
+							%li
+								%a{:href => "#"} Sub-item 1
+							%li
+								%a{:href => "#"} Sub-item 2
+							%li.divider
+							%li
+								%a{:href => "#"} Sub-item 3
+							%li.has-dropdown.not-click
+								%a{:href => "#"} Sub-item 4
+								%ul.dropdown
+									%li.title.back.js-generated
+										%h5
+											%a{:href => "javascript:void(0)"} Back
+									%li.parent-link.hide-for-medium-up
+										%a.parent-link.js-generated{:href => "#"} Sub-item 4
+									%li
+										%label Level Two
+									%li.has-dropdown.not-click
+										%a{:href => "#"} Sub-item 1
+										%ul.dropdown
+											%li.title.back.js-generated
+												%h5
+													%a{:href => "javascript:void(0)"} Back
+											%li.parent-link.hide-for-medium-up
+												%a.parent-link.js-generated{:href => "#"} Sub-item 1
+											%li
+												%label Level Three
+											%li.has-dropdown.not-click
+												%a{:href => "#"} Sub-item 1
+												%ul.dropdown
+													%li.title.back.js-generated
+														%h5
+															%a{:href => "javascript:void(0)"} Back
+														%li.parent-link.hide-for-medium-up
+														%a.parent-link.js-generated{:href => "#"} Sub-item 1
+													%li
+														%label Level Four
+													%li
+														%a{:href => "#"} Sub-item 1
+											%li
+												%a{:href => "#"} Sub-item 2
+											%li
+												%a{:href => "#"} Sub-item 3
+											%li.divider
+											%li
+												%a{:href => "#"} Sub-item 4
+									%li
+										%a{:href => "#"} Sub-item 2
+									%li
+										%a{:href => "#"} Sub-item 3
+									%li
+										%a{:href => "#"} Sub-item 4
+							%li
+								%a{:href => "#"} Sub-item 5
+					%li.divider
+				/ Right Nav Section
+				%ul.left
+					%li.divider
+					%li
+						- if current_consultant
+							%a{:href => consultant_path(current_consultant.id)} #{current_consultant.first_name} #{current_consultant.last_name}
+							%li
+								%ul.button-group.radius
+									%li
+										= link_to "Logout", destroy_consultant_session_path, method: :delete
+		= yield

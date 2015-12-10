@@ -1,0 +1,28 @@
+= form_for @sow do |f|
+  - if @sow.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@sow.errors.count, "error")} prohibited this sow from being saved:"
+      %ul
+        - @sow.errors.full_messages.each do |msg|
+          %li= msg
+  .row
+    .field
+      = f.label :begin_date
+      = f.date_field :begin_date
+    .field
+      = f.label :end_date
+      = f.date_field :end_date
+    .field
+      = f.label :sow_hours
+      = f.text_field :sow_hours
+    .field
+      = f.label :bill_rate
+      = f.text_field :bill_rate
+    .field
+      = "Client"
+      = f.select :client_id, Client.all.collect { |c| [c.name, c.id] }
+    .field
+      = f.label :project_id
+      = f.select :project_id, Project.all.collect { |p| [p.name, p.id] }
+    .actions
+      = f.submit 'Save'

@@ -1,0 +1,24 @@
+%p#notice= notice
+
+%p
+  %b Begin date:
+  = @sow.begin_date
+%p
+  %b End date:
+  = @sow.end_date
+%p
+  %b Sow hours:
+  = @sow.sow_hours
+%p
+  %b Bill rate:
+  = @sow.bill_rate
+%p
+  %b Client:
+  = @sow.client_id
+%p
+  %b Project:
+  = @sow.project_id
+
+= link_to 'Edit', edit_sow_path(@sow)
+\|
+= link_to 'Back', sows_path

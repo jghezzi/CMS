@@ -1,0 +1,17 @@
+%p#notice= notice
+%h3 #{current_consultant.first_name} #{current_consultant.last_name} 
+%h6 #{current_consultant.sei_loc.name}
+%br/
+= form_for @consultant_sow do |f|
+	- current_consultant.projects.each do |project|
+		%table	
+			%th #{project.name}
+			%th
+			%tr
+				- project.sows.each do |sow|
+					%td= sow.description
+					= f.hidden_field :sow_id, :value => sow.id
+					= f.hidden_field :consultant_id, :value => current_consultant.id
+					%td= f.submit 'Assign'
+					%tr
+= link_to 'Back', sows_path

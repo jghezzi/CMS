@@ -1,0 +1,21 @@
+%p#notice= notice
+
+%p
+  %b Bill date:
+  = @billing.bill_date
+%p
+  %b Hours:
+  = @billing.hours
+%p
+  %b Consultant:
+  = @billing.consultant_id
+%p
+  %b Project:
+  = @billing.project_id
+%p
+  %b Sow:
+  = @billing.sow_id
+
+= link_to 'Edit', edit_billing_path(@billing)
+\|
+= link_to 'Back', billings_path
